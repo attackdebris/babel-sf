@@ -28,6 +28,7 @@ PASSWORD = STDIN.gets.chomp()
 
 begin
 if ARGV[1] == "ls"
+  # dir list FTP server
   Net::FTP.open(HOST, USERNAME, PASSWORD) do |ftp|
   files = ftp.list
   puts "\r\nlist out files in root directory:"
@@ -38,12 +39,14 @@ elsif ARGV[1] == "get"
   TXT_FILE_OBJECT = ARGV[2]
   Net::FTP.open(HOST, USERNAME, PASSWORD) do |ftp|
   ftp.getbinaryfile(TXT_FILE_OBJECT)
+  puts "\r\n"
   end
 elsif ARGV[1] == "put"
-  # 	upload files
+  # upload files
   TXT_FILE_OBJECT = File.new(ARGV[2])
   Net::FTP.open(HOST, USERNAME, PASSWORD) do |ftp|
   ftp.putbinaryfile(TXT_FILE_OBJECT)
+  puts "\r\n"
   end
 else
   puts "\r\nError, your command must include ls, get or put."
