@@ -2,8 +2,7 @@
 #
 # Base code from https://gist.github.com/jstorimer/3522068
 #
-# babel-sf portscan-ruby.rb
-# version 0.1
+# portscan-ruby.rb version 0.1
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
