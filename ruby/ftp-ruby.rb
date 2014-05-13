@@ -31,7 +31,7 @@ if ARGV[1] == "ls"
   # dir list FTP server
   Net::FTP.open(HOST, USERNAME, PASSWORD) do |ftp|
   files = ftp.list
-  puts "\r\nlist out files in root directory:"
+  puts "\r\nroot directory file listing:"
   puts files
   end
 elsif ARGV[1] == "get" 
