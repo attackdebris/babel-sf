@@ -12,10 +12,10 @@ import subprocess
 import sys
 import time
 
-instructions = 	"ftp-python.py - ( https://github.com/attackdebris/babel-sf )\n" +\
+instructions = 	"portscan-python.py - ( https://github.com/attackdebris/babel-sf )\n" +\
 		"\nUsage:" +\
-		"\npython portscan.py [target]" +\
-		"\ne.g. python portscan.py attackdebris.com"
+		"\npython portscan-python.py [target]" +\
+		"\ne.g. python portscan-python.py attackdebris.com"
 
 if len(sys.argv) <2:
 	print instructions
@@ -25,7 +25,7 @@ elif len(sys.argv) >2:
 elif len(sys.argv) ==2:
 	HOST=sys.argv[1]
 	#HOST  = socket.gethostbyname(remoteServer)
-	print "Starting portscan-ruby.rb ( https://github.com/attackdebris/babel-sf ) at " + (time.strftime("%Y-%m-%d %H:%M"))
+	print "Starting portscan-python.py ( https://github.com/attackdebris/babel-sf ) at " + (time.strftime("%Y-%m-%d %H:%M"))
 	print "Scan report for {}".format(HOST)
 for PORT in [21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 3306, 3389]:  
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
