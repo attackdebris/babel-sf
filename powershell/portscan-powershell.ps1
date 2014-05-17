@@ -6,9 +6,23 @@
 #
 #########################################################
 
-param ( [string]$target)
+<#
+    .SYNOPSIS
+      A simple port scanner implemented in PowerShell.
+    .EXAMPLE
+	C:\PS> ./portscan-powershell.ps1 [target]
+	.EXAMPLE
+	C:\PS> ./portscan-powershell.ps1 attackdebris.com
+#>
 
-$date = Get-Date -format "yyyy-MM-dd HH:MM"
+param ( 
+	#[string]$target)
+	[Parameter()]
+	[ValidateNotNullOrEmpty()]
+    [string]$target=$(throw "Please specify a target IP address or domain name.")
+)
+
+$date = Get-Date -format "yyyy-MM-dd HH:MM" 
 
 # A list of ports separated by commas eg. 21,22,23,25,80,443
 # A range of ports, eg. 1..10
@@ -29,5 +43,4 @@ if ($status -eq 'True') {
 echo "$i/tcp open"
 }
 }
-echo ""
-echo "portscan-powershell.ps1 scan done"
+echo "`nportscan-powershell.ps1 scan done"
