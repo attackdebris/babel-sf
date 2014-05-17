@@ -11,14 +11,13 @@
       A simple port scanner implemented in PowerShell.
     .EXAMPLE
 	C:\PS> ./portscan-powershell.ps1 [target]
-	.EXAMPLE
+    .EXAMPLE
 	C:\PS> ./portscan-powershell.ps1 attackdebris.com
 #>
 
 param ( 
-	#[string]$target)
-	[Parameter()]
-	[ValidateNotNullOrEmpty()]
+    [Parameter()]
+    [ValidateNotNullOrEmpty()]
     [string]$target=$(throw "Please specify a target IP address or domain name.")
 )
 
