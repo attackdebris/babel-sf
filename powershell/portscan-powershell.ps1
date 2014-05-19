@@ -10,16 +10,27 @@
     .SYNOPSIS
       A simple port scanner implemented in PowerShell.
     .EXAMPLE
-	C:\PS> ./portscan-powershell.ps1 [target]
+	C:\PS> .\portscan-powershell.ps1 [target]
     .EXAMPLE
-	C:\PS> ./portscan-powershell.ps1 attackdebris.com
+	C:\PS> .\portscan-powershell.ps1 attackdebris.com
 #>
 
 param ( 
     [Parameter()]
-    [ValidateNotNullOrEmpty()]
-    [string]$target=$(throw "Please specify a target IP address or domain name.")
+	[ValidateNotNullOrEmpty()]
+	[string]$target = ""
 )
+
+if ($target -eq "")
+{
+echo "portscan-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )"
+echo "`nUsage:"
+echo ".\portscan-powershell.ps1 [target]"
+echo "e.g. .\portscan-powershell.ps1 attackdebris.com`n"
+}
+
+elseif ($target -ne "")
+{
 
 $date = Get-Date -format "yyyy-MM-dd HH:MM" 
 
@@ -43,3 +54,4 @@ echo "$i/tcp open"
 }
 }
 echo "`nportscan-powershell.ps1 scan done"
+}
