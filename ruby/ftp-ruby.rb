@@ -18,35 +18,37 @@ if ARGV.empty?
     puts "ruby ftp-ruby.rb [FTP Server IP] put [local filename] - Upload file to FTP Server"
     exit
 end
-
-print "Username: "  
+puts "ftp-ruby.rb ( https://github.com/attackdebris/babel-sf )"
+print "\r\nUsername: "  
 USERNAME = STDIN.gets.chomp() 
 print "Password: " 
 `stty -echo`
 PASSWORD = STDIN.gets.chomp()
 `stty echo`
+puts "\r\n"
 
 begin
 if ARGV[1] == "ls"
   # dir list FTP server
   Net::FTP.open(HOST, USERNAME, PASSWORD) do |ftp|
   files = ftp.list
-  puts "\r\nroot directory file listing:"
+  puts "\r\n"
+  puts "root directory file listing:"
   puts files
   end
 elsif ARGV[1] == "get" 
   # download files
-  TXT_FILE_OBJECT = ARGV[2]
+  FILENAME = ARGV[2]
   Net::FTP.open(HOST, USERNAME, PASSWORD) do |ftp|
-  ftp.getbinaryfile(TXT_FILE_OBJECT)
-  puts "\r\n"
+  ftp.getbinaryfile(FILENAME)
+  puts "\r\nSuccessfully downloaded: #{FILENAME}"
   end
 elsif ARGV[1] == "put"
   # upload files
-  TXT_FILE_OBJECT = File.new(ARGV[2])
+  FILENAME = File.new(ARGV[2])
   Net::FTP.open(HOST, USERNAME, PASSWORD) do |ftp|
-  ftp.putbinaryfile(TXT_FILE_OBJECT)
-  puts "\r\n"
+  ftp.putbinaryfile(FILENAME)
+  puts "\r\nSuccessfully uploaded: #{ARGV[2]}"
   end
 else
   puts "\r\nError, your command must include ls, get or put."
