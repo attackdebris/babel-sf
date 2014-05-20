@@ -52,7 +52,7 @@ elseif ($function -eq "ls")
 # FTP dir
 echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )`n"
 $username = Read-Host 'Username'
-$password = Read-Host 'Password'
+$password = Read-Host -assecurestring 'Password'
 echo "`nroot directory file listing:"
 $ftp = [System.Net.WebRequest]::Create("ftp://$target") 
 $ftp.Method = [System.Net.WebRequestMethods+FTP]::ListDirectoryDetails
@@ -97,7 +97,7 @@ elseif ($function -eq "put")
 # FTP Upload
 echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )`n"
 $username = Read-Host 'Username'
-$password = Read-Host 'Password'
+$password = Read-Host -assecurestring 'Password'
 $ftp = [System.Net.FtpWebRequest]::Create("ftp://$target/$filename")
 $ftp = [System.Net.FtpWebRequest]$ftp
 $ftp.Method = [System.Net.WebRequestMethods+Ftp]::UploadFile
@@ -128,7 +128,7 @@ elseif ($function -eq "get")
 # FTP download
 echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )`n"
 $username = Read-Host 'Username'
-$password = Read-Host 'Password'
+$password = Read-Host -assecurestring 'Password'
 $FTPRequest = [System.Net.FtpWebRequest]::Create("ftp://$target/$filename")
 $FTPRequest.Credentials = new-object System.Net.NetworkCredential("$username","$password")
 $FTPRequest.Method = [System.Net.WebRequestMethods+Ftp]::DownloadFile
