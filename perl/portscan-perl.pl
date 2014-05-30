@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# portscan-perl.rb version 0.1
+# portscan-perl.pl version 0.1
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
