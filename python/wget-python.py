@@ -13,7 +13,7 @@ instructions = "wget-python.py - ( https://github.com/attackdebris/babel-sf )\n"
 "\npython wget-python.py [http(s) server resource] [local filename]" +\
 "\ne.g. python wget-python.py https://github.com/attackdebris/babel-sf/archive/master.zip master.zip"
 
-if len(sys.argv) !=3 or sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help" or sys.argv[1] == "--help":
+if len(sys.argv) !=3:
   print instructions
   sys.exit()
 elif len(sys.argv) ==3:
