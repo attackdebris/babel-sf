@@ -15,7 +15,7 @@ instructions = 	"ftp-python.py - ( https://github.com/attackdebris/babel-sf )\n"
 		"\npython ftp-python.py [FTP Server IP] get [remote filename] - Download file from FTP Server"  +\
 		"\npython ftp-python.py [FTP Server IP] put [local filename] - Upload file to FTP Server"
 		
-if len(sys.argv) <3 or sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help" or sys.argv[1] == "--help":
+if len(sys.argv) <3:
 	print instructions
 elif sys.argv[2] =="ls" and len(sys.argv) ==3:
 	print "ftp-python.py - ( https://github.com/attackdebris/babel-sf )\n"
