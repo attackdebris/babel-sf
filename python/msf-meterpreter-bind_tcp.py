@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/python
 #
 # msf-meterpreter-bind_tcp.py version 0.1
 #
