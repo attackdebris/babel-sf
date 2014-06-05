@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/python
 #
 # Base code from https://gist.github.com/jstorimer/3522068
 #
