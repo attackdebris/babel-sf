@@ -16,7 +16,7 @@ elsif ($num_args != 2) {
 }
 elsif ($num_args == 2) {
 	print "Starting wget-powershell.ps1 ( https://github.com/attackdebris/babel-sf )\n\n";
-	print "Attempting to download the following resource: $HTTP_RESOURCE\n\n";
+	print "Attempting to download the following resource: $HTTP_RESOURCE\n";
 	mirror("$HTTP_RESOURCE", "$LOCAL_FILE");
 	print "Complete, resource saved as $LOCAL_FILE\n";
 }
