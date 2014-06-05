@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/python
 #
 # wget-python.py version 0.1
 #
