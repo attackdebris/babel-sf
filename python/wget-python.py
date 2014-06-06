@@ -8,7 +8,7 @@
 import sys
 import urllib
 
-instructions = "wget-python.py - ( https://github.com/attackdebris/babel-sf )\n" +\
+instructions = "wget-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
 "\nUsage:" +\
 "\npython wget-python.py [http(s) server resource] [local filename]" +\
 "\ne.g. python wget-python.py https://github.com/attackdebris/babel-sf/archive/master.zip master.zip"
