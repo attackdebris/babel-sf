@@ -12,7 +12,7 @@ import subprocess
 import sys
 import time
 
-instructions = 	"portscan-python.py - ( https://github.com/attackdebris/babel-sf )\n" +\
+instructions = 	"portscan-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
 		"\nUsage:" +\
 		"\npython portscan-python.py [target]" +\
 		"\ne.g. python portscan-python.py attackdebris.com"
