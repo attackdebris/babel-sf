@@ -17,8 +17,8 @@ my $date = strftime "%m-%d-%Y %H:%M", localtime;
 
 my $num_args = $#ARGV + 1;
 #$target = $ARGV[0];
-if ($num_args == 0) {
-	print"portscan-perl.pl - ( https://github.com/attackdebris/babel-sf )\n";
+if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-help" or $ARGV[0] eq "--help"){
+	print"portscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"\nUsage:"; 
         print"\nperl portscan-perl.pl [target]";
 	print"\nperl portscan-perl.pl e.g. perl portscan-powershell.pl attackdebris.com\n";
