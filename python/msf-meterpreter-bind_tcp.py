@@ -11,11 +11,12 @@ import datetime
 i = datetime.datetime.today()
 
 instructions = 	"msf-meterpreter-bind_tcp.py ( https://github.com/attackdebris/babel-sf )\n" +\
+		"[This script should be utilised with a python/meterpreter/bind_tcp msf handler payload]\n" +\
 		"\nUsage:" +\
 		"\npython msf-meterpreter-bind_tcp.py [bind port]" +\
 		"\ne.g. python msf-meterpreter-bind_tcp.py 4444"
 
-if len(sys.argv) <2:
+if len(sys.argv) <2 or sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help" or sys.argv[1] == "--help":
 	print instructions
 elif len(sys.argv) >2:
 	print "Too many arguments, check your syntax."
