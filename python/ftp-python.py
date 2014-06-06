@@ -9,7 +9,7 @@ from ftplib import FTP
 import sys
 import getpass
 
-instructions = 	"ftp-python.py - ( https://github.com/attackdebris/babel-sf )\n" +\
+instructions = 	"ftp-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
 		"\nUsage:" +\
 		"\npython ftp-python.py [FTP Server IP] ls - List contents of FTP Server" +\
 		"\npython ftp-python.py [FTP Server IP] get [remote filename] - Download file from FTP Server"  +\
