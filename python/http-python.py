@@ -11,7 +11,7 @@ import sys
 import SimpleHTTPServer
 import SocketServer
 
-instructions = 	"msf-meterpreter-bind_tcp.py ( https://github.com/attackdebris/babel-sf )\n" +\
+instructions = 	"http-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
 		"\nUsage:" +\
 		"\npython http-python.py [bind port]" +\
 		"\ne.g. python http-python.py 8080"
