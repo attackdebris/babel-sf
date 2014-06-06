@@ -1,10 +1,10 @@
 #!/usr/bin/python
 #
-# Base code from https://gist.github.com/jstorimer/3522068
-#
 # portscan-python.py version 0.1
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
+#
+# Base code from https://gist.github.com/jstorimer/3522068
 #
 
 import socket
@@ -15,9 +15,9 @@ import time
 instructions = 	"portscan-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
 		"\nUsage:" +\
 		"\npython portscan-python.py [target]" +\
-		"\ne.g. python portscan-python.py attackdebris.com"
+		"\ne.g. python portscan-python.py 192.168.0.1"
 
-if len(sys.argv) <2:
+if len(sys.argv) <2  or sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help" or sys.argv[1] == "--help":
 	print instructions
 	sys.exit()
 elif len(sys.argv) >2:
