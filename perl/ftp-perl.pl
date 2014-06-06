@@ -4,8 +4,8 @@ use Net::FTP;
 $num_args = $#ARGV + 1;
 $FTPSERVER=$ARGV[0];
 $FILENAME=$ARGV[2];
-if ($num_args == 0) {
-	print"ftp-perl.pl - ( https://github.com/attackdebris/babel-sf )\n";
+if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-help" or $ARGV[0] eq "--help"){
+	print"ftp-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"\nUsage:"; 
         print"\nperl ftp-perl.pl [FTP Server IP] ls - List contents of FTP Server";	
 	print"\nperl ftp-perl.pl [FTP Server IP] get [remote filename] - Download file from FTP Server";
@@ -13,6 +13,9 @@ if ($num_args == 0) {
 }
 elsif ($num_args < 2) {
 	print"Too few arguments, please check your syntax.\n";
+}
+elsif ($num_args > 3) {
+	print"Too many arguments, please check your syntax.\n";
 }
 elsif ($ARGV[1] eq "ls") {
 	print "ftp-perl.pl - ( https://github.com/attackdebris/babel-sf )\n\n";
