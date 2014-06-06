@@ -5,8 +5,8 @@ $num_args = $#ARGV + 1;
 $HTTP_RESOURCE=$ARGV[0];
 $LOCAL_FILE=$ARGV[1];
 
-if ($num_args == 0) {
-	print"wget-perl.pl - ( https://github.com/attackdebris/babel-sf )\n";
+if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-help" or $ARGV[0] eq "--help") {
+	print"wget-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"\nUsage:"; 
         print"\nperl wget-perl.pl [http(s) server resource] [local filename]";	
         print"\ne.g. perl wget-perl.pl https://github.com/attackdebris/babel-sf/archive/master.zip master.zip\n"
