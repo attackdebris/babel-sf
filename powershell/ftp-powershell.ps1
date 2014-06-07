@@ -21,36 +21,34 @@
 #>
 
 param (
-	[Parameter()]
-	[string]$target,
+	[Parameter(Mandatory=$false)]
+	[string]$target,  
 	[string]$function,
-	[string]$filename
+	[string]$filename,
+	[switch]$h
 )
 
-if ($function -eq "")
+if ($function -eq "" -Or $args -eq "h"  -Or $args -eq "-h" -Or $args -eq "help" -Or $args -eq "-help")
 {
-echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )"
+echo "ftp-powershell.ps1 ( https://github.com/attackdebris/babel-sf )"
 echo "`nUsage:"
 echo ".\ftp-powershell.ps1 [FTP Server IP] ls - List contents of FTP Server"
 echo ".\ftp-powershell.ps1 [FTP Server IP] get [remote filename] - Download file from FTP Server"
 echo ".\ftp-powershell.ps1 [FTP Server IP] put [local filename] - Upload file to FTP Server`n"
 #echo "FTP Server IP: $target, Function: $function, Filename: $filename"
+exit
 }
 
-elseif (($function -eq "get" -or $function -eq "put" -and $filename -eq ""))
+elseif (($function -eq "get" -Or $function -eq "put" -and $filename -eq ""))
 {
-echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )"
-echo "`nUsage:"
-echo ".\ftp-powershell.ps1 [FTP Server IP] ls - List contents of FTP Server"
-echo ".\ftp-powershell.ps1 [FTP Server IP] get [remote filename] - Download file from FTP Server"
-echo ".\ftp-powershell.ps1 [FTP Server IP] put [local filename] - Upload file to FTP Server`n"
-#echo "FTP Server IP: $target, Function: $function, Filename: $filename"
+echo "ftp-powershell.ps1 ( https://github.com/attackdebris/babel-sf )"
+echo "`nA filename is required, check your syntax`n"
 }
 
 elseif ($function -eq "ls")
 {
 # FTP dir
-echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )`n"
+echo "ftp-powershell.ps1 ( https://github.com/attackdebris/babel-sf )`n"
 $username = Read-Host 'Username'
 $password = Read-Host -assecurestring 'Password'
 echo "`nroot directory file listing:"
@@ -95,7 +93,7 @@ $outputBuffer
 elseif ($function -eq "put")
 {
 # FTP Upload
-echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )`n"
+echo "ftp-powershell.ps1 ( https://github.com/attackdebris/babel-sf )`n"
 $username = Read-Host 'Username'
 $password = Read-Host -assecurestring 'Password'
 $ftp = [System.Net.FtpWebRequest]::Create("ftp://$target/$filename")
@@ -126,7 +124,7 @@ echo "`nError, $filename does not exist"
 elseif ($function -eq "get")
 {
 # FTP download
-echo "ftp-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )`n"
+echo "ftp-powershell.ps1 ( https://github.com/attackdebris/babel-sf )`n"
 $username = Read-Host 'Username'
 $password = Read-Host -assecurestring 'Password'
 $FTPRequest = [System.Net.FtpWebRequest]::Create("ftp://$target/$filename")
