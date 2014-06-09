@@ -18,11 +18,11 @@
 param ( 
     [Parameter()]
 	[ValidateNotNullOrEmpty()]
-	[string]$target = ""
+	[string]$target = "",
+	[switch]$h
 )
 
-if ($target -eq "")
-{
+if ($target -eq "" -Or $target -eq "-h" -Or $target -eq "--h" -Or $target -eq "-help" -Or $target -eq "--help"){
 echo "portscan-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )"
 echo "`nUsage:"
 echo ".\portscan-powershell.ps1 [target]"
@@ -46,7 +46,7 @@ echo "PORT   STATE"
 foreach ($i in $range) {
 try {
 $Test = new-object System.Net.Sockets.TCPClient
-$status = ( $Test.BeginConnect( $target, $i,  $Null, $Null ) ).AsyncWaitHandle.WaitOne( 250 )
+$status = ( $Test.BeginConnect( $target, $i,  $Null, $Null ) ).AsyncWaitHandle.WaitOne( 500 )
 } catch {}
 #echo "$status"
 if ($status -eq 'True') {
