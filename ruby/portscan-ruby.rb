@@ -9,25 +9,26 @@
 
 require 'socket'
 
-# Set up the parameters.
 HOST = ARGV[0]
+
 # Port ranges can also be specified as a range i.e. 21..23
 PORT_RANGE = 21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 3306, 3389 
 TIME_TO_WAIT = 5 # seconds
 TIME = Time.now.strftime("%Y-%m-%d %H:%M")
 
-if ARGV.empty? 
-    puts "Usage: ruby portscan.rb [target]"
+if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or ARGV[0] == "--help"
+    puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
+    puts "\r\n"
+    puts "Usage:" 
+    puts "ruby portscan.rb [target]"
     puts "e.g. ruby portscan.rb attackdebris.com"
-    exit
-end
-
-# Create a socket for each port and initiate the nonblocking
-# connect.
-sockets = PORT_RANGE.map do |port|
-  socket = Socket.new(:INET, :STREAM)
-  remote_addr = Socket.sockaddr_in(port, HOST)
-
+elsif ARGV.length > 1
+    puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
+    puts "\r\nError, only 1 argument is required, check your syntax"
+elsif ARGV.length ==1
+    sockets = PORT_RANGE.map do |port|
+    socket = Socket.new(:INET, :STREAM)
+    remote_addr = Socket.sockaddr_in(port, HOST)
   begin
     socket.connect_nonblock(remote_addr)
   rescue Errno::EINPROGRESS
@@ -65,4 +66,4 @@ loop do
   end
 end
 puts "\nportscan-ruby.rb scan done"
-
+end
