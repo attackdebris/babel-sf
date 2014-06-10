@@ -8,12 +8,14 @@
 
 param (
 [Parameter()]
-[string]$port_number
+[string]$port_number,
+[switch]$h,
+[switch]$help
 )
 
-if ($port_number -eq "")
+if ($port_number -eq "" -Or $port_number -eq "-h" -Or $port_number -eq "--h" -Or $port_number -eq "-help" -Or $port_number -eq "--help")
 {
-echo "http-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )"
+echo "http-powershell.ps1 ( https://github.com/attackdebris/babel-sf )"
 echo "`nUsage:"
 echo ".\http-powershell.ps1 [port number]"
 echo "e.g. .\http-powershell.ps1 80`n"
