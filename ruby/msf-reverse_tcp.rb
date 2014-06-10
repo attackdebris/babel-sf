@@ -5,7 +5,7 @@
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
 
-require 'socket';
+require 'socket'
 
 msf_host = ARGV[0]
 port_number = ARGV[1]
