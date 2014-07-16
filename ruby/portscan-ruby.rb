@@ -14,7 +14,7 @@ def portscan_engine()
 # Set time_now due to fix timing issue and the expiration
 time_now = Time.now
 expiration = Time.now + TIME_TO_WAIT
-# Header detail
+# Header details
 puts "Starting portscan-ruby.rb ( https://github.com/attackdebris/babel-sf ) at #{TIME}"
 if HOST == RHOST
   puts "Scan report for #{HOST}"
