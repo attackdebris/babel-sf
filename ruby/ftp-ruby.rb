@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #
-# ftp-ruby.rb version 0.1
+# ftp-ruby.rb version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -13,9 +13,9 @@ if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or A
     puts "ftp-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\n"
     puts "Usage:" 
-    puts "ruby ftp-ruby.rb [FTP Server IP] ls - List contents of FTP Server"
-    puts "ruby ftp-ruby.rb [FTP Server IP] get [remote filename] - Download file from FTP Server"
-    puts "ruby ftp-ruby.rb [FTP Server IP] put [local filename] - Upload file to FTP Server"
+    puts "  ruby ftp-ruby.rb [FTP Server IP] ls                    - List contents of FTP Server"
+    puts "  ruby ftp-ruby.rb [FTP Server IP] get [remote filename] - Download file from FTP Server"
+    puts "  ruby ftp-ruby.rb [FTP Server IP] put [local filename]  - Upload file to FTP Server"
 elsif ARGV.length < 2
     puts "ftp-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\nError, atleast 2 arguments are required, check your syntax"

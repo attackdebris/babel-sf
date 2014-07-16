@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #
-# wget-ruby.rb version 0.1
+# wget-ruby.rb version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -14,8 +14,8 @@ if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or A
     puts "wget-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\n"
     puts "Usage:"
-    puts "ruby wget-ruby.rb [http(s) server resource] [local filename]"
-    puts "e.g. ruby wget-ruby.rb https://github.com/attackdebris/babel-sf/archive/master.zip master.zip"
+    puts "  ruby wget-ruby.rb [HTTP(S) server resource] [local filename]"
+    puts "  e.g. ruby wget-ruby.rb https://github.com/attackdebris/babel-sf/archive/master.zip master.zip"
 elsif ARGV.length != 2
     puts "wget-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\nError, 2 arguments are required, a remote filename and a local filename, check your syntax"

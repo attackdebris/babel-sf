@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #
-# msf-bind_tcp.rb version 0.1
+# msf-bind_tcp.rb version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -16,8 +16,8 @@ if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or A
     puts "\r\n[This script should be utilised with a ruby/shell_bind_tcp msf handler payload]"
     puts "\r\n"
     puts "Usage:"
-    puts "ruby msf-bind_tcp.rb [bind port]"
-    puts "e.g. ruby msf-bind_tcp.rb 4444"
+    puts "  ruby msf-bind_tcp.rb [bind port]"
+    puts "  e.g. ruby msf-bind_tcp.rb 4444"
 elsif ARGV.length != 1
     puts "msf-reverse_tcp.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\nError, only 1 argument is required, check your syntax"
