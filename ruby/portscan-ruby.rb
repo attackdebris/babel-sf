@@ -67,7 +67,7 @@ if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or A
     puts "  -p <port ranges>: Only scan specified ports"
     puts "  e.g. -p 20-22"
     puts "  e.g. -p 20,21,22"
-elsif ARGV.length ==1
+elsif ARGV[0] != "-p" && ARGV.length == 1
     # Name lookup
     RHOST = ARGV[0]
     HOST = IPSocket::getaddress(RHOST)
@@ -76,7 +76,10 @@ elsif ARGV.length ==1
 elsif ARGV.length > 3
     puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\nError, maximum of 3 arguments accepted, check your syntax"
-elsif ARGV[0] == "-p"
+elsif ARGV[0] == "-p" && ARGV.length != 3
+    puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
+    puts "\r\nYou need to specify a port range and target host"
+elsif ARGV[0] == "-p" && ARGV.length == 3
     # Name lookup
     RHOST = ARGV[2]
     HOST = IPSocket::getaddress(RHOST)
