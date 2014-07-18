@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# portscan-perl.pl version 0.1
+# portscan-perl.pl version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -20,8 +20,8 @@ my $num_args = $#ARGV + 1;
 if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-help" or $ARGV[0] eq "--help"){
 	print"portscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"\nUsage:"; 
-        print"\nperl portscan-perl.pl [target]";
-	print"\nperl portscan-perl.pl e.g. perl portscan-powershell.pl attackdebris.com\n";
+        print"\n  perl portscan-perl.pl [target]";
+	print"\n  perl portscan-perl.pl e.g. perl portscan-powershell.pl attackdebris.com\n";
 }
 elsif ($num_args > 1) {
 	print"Only 1 argument is required, please check your syntax.\n";

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# msf-bind_tcp.pl version 0.1
+# msf-bind_tcp.pl version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -11,11 +11,11 @@ use Socket;
 my $date = strftime "%m-%d-%Y %H:%M", localtime;
 my $num_args = $#ARGV + 1;
 if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--help" or $ARGV[0] eq "--h" or $ARGV[0] eq "-help") {
-	print"msf-bind_tcp.pl - ( https://github.com/attackdebris/babel-sf )\n";
+	print"msf-bind_tcp.pl - ( https://github.com/attackdebris/babel-sf )\n\n";
 	print"[This script should be utilised with a linux/x86/shell/bind_tcp msf handler]\n";
 	print"\nUsage:"; 
-        print"\nperl msf-bind_tcp.pl [port number]";
-	print"\nperl msf-bind_tcp.pl e.g. perl msf-bind_tcp.pl 8080\n";
+        print"\n  perl msf-bind_tcp.pl [port number]";
+	print"\n  perl msf-bind_tcp.pl e.g. perl msf-bind_tcp.pl 4444\n";
 }
 elsif ($num_args != 1) {
 	print"Only 1 argument is required, please check your syntax.\n";
