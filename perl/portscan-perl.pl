@@ -21,18 +21,94 @@ if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-he
 	print"portscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"\nUsage:"; 
         print"\n  perl portscan-perl.pl [target]";
-	print"\n  perl portscan-perl.pl e.g. perl portscan-powershell.pl attackdebris.com\n";
+	print"\n  perl portscan-perl.pl e.g. perl portscan-powershell.pl attackdebris.com";
+	print"\nPORT SPECIFICATION (optional):";
+	print"\n  -p <port ranges>: Only scan specified ports";
+	print"\n  e.g. -p 20-22";
+	print"\n  e.g. -p 20,21,22\n";
 }
-elsif ($num_args > 1) {
-	print"Only 1 argument is required, please check your syntax.\n";
-	#exit;
+elsif ($num_args > 3) {
+	print "portscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n\n";
+	print"Too many arguments, please check your syntax.\n";
+	exit 0
+}
+elsif ($ARGV[0] eq "-p" and $num_args ne 3 ) {
+	print "portscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n\n";
+	print "You need to specify a port range and target host\n";
+	exit 0;
+}
+elsif ($ARGV[0] eq "-p" and $num_args eq 3 ) {
+	#if (index($ARGV[1], '-') != -1) {
+	if ($ARGV[1] =~ /-/) {
+	  my @ports = split /-/, $ARGV[1];
+	  #print "PORTS = @ports\n";
+	  #print "ports 0 = $ports[0]\n";
+	  #print "ports 1 = $ports[1]\n";
+	  our $lport = $ports[0];
+	  our $hport = $ports[1];
+	  #print "lport = $lport\n";
+	  #print "hport = $hport\n";
+	  our $target = $ARGV[2];
+	  &portscan_range_engine($lport, $hport, $target);
+	}
+	#elsif (index($ARGV[1], ',') != -1) {
+	elsif ($ARGV[1] =~ /,/) {
+	  our @port = split /,/, $ARGV[1];
+	  #our @port = $ARGV[1];
+	  print "PORTS = @port\n";
+	  #print "port 0 = $port[0]\n";
+	  #print "port 1 = $port[1]\n";
+	  our $target = $ARGV[2];
+	  #print "port = $port\n";
+	  &portscan_list_engine(@port, $target);
+	}
+	else {
+	  our @port = $ARGV[1];
+	  our $target = $ARGV[2];
+	  &portscan_list_engine(@port, $target);
+	  }
 }
 elsif ($num_args == 1) {
+#Get host.
+our $target = $ARGV[0];
+my $ports = '21,22,23,25,53,80,135,139,443,445,1433,3306,3389';
+our @port = split(',', $ports);
+#our @port = 22,80,83,3389;
+&portscan_list_engine(@port, $target);
+}
+
+sub portscan_list_engine 
+{
+print "Starting portscan-perl.pl ( https://github.com/attackdebris/babel-sf ) at $date\n";
+print "Scan report for $main::target\n";
+print "PORT   STATE\n";
+foreach my $i (@main::port) {
+my $socket;
+my $success = eval {
+	$socket = IO::Socket::INET->new(
+		PeerAddr 	=> $main::target, 
+		PeerPort 	=> $i,#@main::port, 
+		Proto 	=> 'tcp',
+		Timeout => 2
+	) 
+};
+		
+#If the port was opened, say it was and close it.
+if ($success) {
+	print "$i/tcp open\n";#@main::port/tcp open\n";
+	shutdown($socket, 2);
+}
+}
+#Exit.
+print "\nportscan-perl.pl scan done\n";
+exit 0;
+}
+
+sub portscan_range_engine
+{
+
 #Auto-flush.
 $| = 1;
-
-#Get host.
-my $target = $ARGV[0];
 
 #Parent thread has no parent.
 my $parent = 0;
@@ -42,10 +118,10 @@ my @children = ();
 
 #Port scan host.
 print "Starting portscan-perl.pl ( https://github.com/attackdebris/babel-sf ) at $date\n";
-print "Scan report for $target\n";
+print "Scan report for $main::target\n";
 print "PORT   STATE\n";
 my $port;
-FORK: for ($port=1; $port<=3389; $port++) {
+FORK: for ($port=$main::lport; $port<=$main::hport; $port++) {
 	#Fork.
 	my $oldpid = $$;
 	my $pid = fork;
@@ -84,10 +160,10 @@ if ($parent) {
 	my $socket;
 	my $success = eval {
 		$socket = IO::Socket::INET->new(
-			PeerAddr 	=> $target, 
+			PeerAddr 	=> $main::target, 
 			PeerPort 	=> $port, 
 			Proto 	=> 'tcp',
-			Timeout => 1
+			Timeout => 2
 		) 
 	};
 			
@@ -99,15 +175,11 @@ if ($parent) {
 	#Exit.
 	exit 0;
 } else {
-	#If we're not the kid, we're the parent. Do a reap.
-	&DoReap;
-}
 
-#This sub is the reaper.
-sub DoReap {
 	while (my $child = shift @children) {
-		waitpid $child, 0;
+	  waitpid $child, 0;
 	}
 }
+sleep(3);
 print "\nportscan-perl.pl scan done\n";
 }
