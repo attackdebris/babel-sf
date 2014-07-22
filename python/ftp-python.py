@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# ftp-python.py version 0.1
+# ftp-python.py version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -11,9 +11,9 @@ import getpass
 
 instructions = 	"ftp-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
 		"\nUsage:" +\
-		"\npython ftp-python.py [FTP Server IP] ls - List contents of FTP Server" +\
-		"\npython ftp-python.py [FTP Server IP] get [remote filename] - Download file from FTP Server"  +\
-		"\npython ftp-python.py [FTP Server IP] put [local filename] - Upload file to FTP Server"
+		"\n  python ftp-python.py [FTP Server IP] ls                    - List contents of FTP Server" +\
+		"\n  python ftp-python.py [FTP Server IP] get [remote filename] - Download file from FTP Server"  +\
+		"\n  python ftp-python.py [FTP Server IP] put [local filename]  - Upload file to FTP Server"
 		
 if len(sys.argv) <3:
 	print instructions

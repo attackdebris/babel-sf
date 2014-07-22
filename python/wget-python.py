@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# wget-python.py version 0.1
+# wget-python.py version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -10,8 +10,8 @@ import urllib
 
 instructions = "wget-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
 "\nUsage:" +\
-"\npython wget-python.py [http(s) server resource] [local filename]" +\
-"\ne.g. python wget-python.py https://github.com/attackdebris/babel-sf/archive/master.zip master.zip"
+"\n  python wget-python.py [HTTP(S) server resource] [local filename]" +\
+"\n  e.g. python wget-python.py https://github.com/attackdebris/babel-sf/archive/master.zip master.zip"
 
 if len(sys.argv) !=3:
   print instructions
