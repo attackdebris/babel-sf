@@ -4,9 +4,6 @@
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
-# Original/Source code by Jonathan Worthington
-# http://www.jnthn.net/perlportscanner.shtml
-#
 
 use strict;
 use warnings;
@@ -38,49 +35,46 @@ elsif ($ARGV[0] eq "-p" and $num_args ne 3 ) {
 	exit 0;
 }
 elsif ($ARGV[0] eq "-p" and $num_args eq 3 ) {
-	#if (index($ARGV[1], '-') != -1) {
 	if ($ARGV[1] =~ /-/) {
 	  my @ports = split /-/, $ARGV[1];
-	  #print "PORTS = @ports\n";
-	  #print "ports 0 = $ports[0]\n";
-	  #print "ports 1 = $ports[1]\n";
 	  our $lport = $ports[0];
 	  our $hport = $ports[1];
-	  #print "lport = $lport\n";
-	  #print "hport = $hport\n";
 	  our $target = $ARGV[2];
-	  &portscan_range_engine($lport, $hport, $target);
+	  our $ip = inet_ntoa(inet_aton($target));
+	  &portscan_range_engine($lport, $hport, $target, $ip);
 	}
-	#elsif (index($ARGV[1], ',') != -1) {
 	elsif ($ARGV[1] =~ /,/) {
 	  our @port = split /,/, $ARGV[1];
-	  #our @port = $ARGV[1];
 	  print "PORTS = @port\n";
-	  #print "port 0 = $port[0]\n";
-	  #print "port 1 = $port[1]\n";
 	  our $target = $ARGV[2];
-	  #print "port = $port\n";
-	  &portscan_list_engine(@port, $target);
+	  our $ip = inet_ntoa(inet_aton($target));
+	  &portscan_list_engine(@port, $target, $ip);
 	}
 	else {
 	  our @port = $ARGV[1];
 	  our $target = $ARGV[2];
-	  &portscan_list_engine(@port, $target);
+	  our $ip = inet_ntoa(inet_aton($target));
+	  &portscan_list_engine(@port, $target, $ip);
 	  }
 }
 elsif ($num_args == 1) {
 #Get host.
 our $target = $ARGV[0];
+our $ip = inet_ntoa(inet_aton($target));
 my $ports = '21,22,23,25,53,80,135,139,443,445,1433,3306,3389';
 our @port = split(',', $ports);
-#our @port = 22,80,83,3389;
-&portscan_list_engine(@port, $target);
+&portscan_list_engine(@port, $target, $ip);
 }
 
 sub portscan_list_engine 
 {
 print "Starting portscan-perl.pl ( https://github.com/attackdebris/babel-sf ) at $date\n";
+if (($main::target) eq ($main::ip)) {
 print "Scan report for $main::target\n";
+}
+else {
+print "Scan report for $main::target ($main::ip)\n";
+}
 print "PORT   STATE\n";
 foreach my $i (@main::port) {
 my $socket;
@@ -118,7 +112,12 @@ my @children = ();
 
 #Port scan host.
 print "Starting portscan-perl.pl ( https://github.com/attackdebris/babel-sf ) at $date\n";
+if (($main::target) eq ($main::ip)) {
 print "Scan report for $main::target\n";
+}
+else {
+print "Scan report for $main::target ($main::ip)\n";
+}
 print "PORT   STATE\n";
 my $port;
 FORK: for ($port=$main::lport; $port<=$main::hport; $port++) {
