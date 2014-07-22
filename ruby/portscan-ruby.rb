@@ -73,7 +73,7 @@ elsif ARGV.length ==1 and ARGV[0] != "-p"
     # Name lookup
     RHOST = ARGV[0]
     HOST = IPSocket::getaddress(RHOST)
-    PORT_RANGE = 21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 3306, 3389 
+    PORT_RANGE = 21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 1521, 3306, 3389 
     portscan_engine()
 elsif ARGV[0] == "-p" and ARGV.length != 3
     puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
