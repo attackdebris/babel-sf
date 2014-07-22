@@ -26,6 +26,7 @@ if len(sys.argv) <2  or sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[
         sys.exit()
 elif len(sys.argv) ==2 and sys.argv[1] != "-p":
 	host = sys.argv[1]
+	ip = socket.gethostbyname(host)
 	port_range = 21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 3306, 3389
 elif len(sys.argv) >4:
 	print "portscan-python.py ( https://github.com/attackdebris/babel-sf )\n"
@@ -38,6 +39,7 @@ elif sys.argv[1] == "-p" and len(sys.argv) != 4:
         sys.exit()
 elif sys.argv[1] == "-p" and len(sys.argv) == 4:
 	host = sys.argv[3]
+	ip = socket.gethostbyname(host)
 	tport_range = sys.argv[2]
 	if "," in tport_range:
 	  port_range = map(int, tport_range.split(","))
@@ -48,8 +50,12 @@ elif sys.argv[1] == "-p" and len(sys.argv) == 4:
 	  port_range = range(lport, hport)
 	else:
 	  port = int(tport_range)
+	  ip = socket.gethostbyname(host)
 	  print "Starting portscan-python.py ( https://github.com/attackdebris/babel-sf ) at " + (time.strftime("%Y-%m-%d %H:%M"))
-	  print "Scan report for {}".format(host)	  
+	  if host != ip:
+	    print "Scan report for {} (%s)".format(host) % ip
+	  else:
+	    print "Scan report for {}".format(host)	  
 	  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	  sock.settimeout(2)
 	  result = sock.connect_ex((host, port))
@@ -81,7 +87,10 @@ if __name__ == '__main__':
     #ports = range(1, 1024)
     pool = Pool(processes=num_procs)
     print "Starting portscan-python.py ( https://github.com/attackdebris/babel-sf ) at " + (time.strftime("%Y-%m-%d %H:%M"))
-    print "Scan report for {}".format(host)
+    if host != ip:
+      print "Scan report for {} (%s)".format(host) % ip
+    else:
+      print "Scan report for {}".format(host)
     for port, status in pool.imap_unordered(scan, [(target_ip, port) for port in port_range]):
         if status == 1:
 	  print "{}/tcp open".format(port)
