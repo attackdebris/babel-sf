@@ -56,7 +56,6 @@ end
 
 puts "\nportscan-ruby.rb scan done"
 end
-
 if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or ARGV[0] == "--help"
     puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\n"
@@ -67,25 +66,22 @@ if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or A
     puts "  -p <port ranges>: Only scan specified ports"
     puts "  e.g. -p 20-22"
     puts "  e.g. -p 20,21,22"
-elsif ARGV.length ==1
+elsif ARGV.length > 3
+    puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
+    puts "\r\nError, maximum of 3 arguments accepted, check your syntax"
+elsif ARGV.length ==1 and ARGV[0] != "-p"
     # Name lookup
     RHOST = ARGV[0]
     HOST = IPSocket::getaddress(RHOST)
     PORT_RANGE = 21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 3306, 3389 
     portscan_engine()
-elsif ARGV.length > 3
+elsif ARGV[0] == "-p" and ARGV.length != 3
     puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
-    puts "\r\nError, maximum of 3 arguments accepted, check your syntax"
-elsif ARGV[0] == "-p"
+    puts "\r\nYou need to specify a port range and target host\n"
+elsif ARGV[0] == "-p" and ARGV.length == 3
     # Name lookup
     RHOST = ARGV[2]
     HOST = IPSocket::getaddress(RHOST)
-    # If single port entered, error
-    unless ARGV[1].include? "-" or ARGV[1].include? ","
-      puts "portscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
-      puts "\r\n"
-      puts "Single port scans not supported, include atleast 2 ports"
-    end
     # If port range is entered split on comma
     if ARGV[1].include? ","
       PORT_RANGE = ARGV[1].split(/[,]/)
@@ -103,5 +99,21 @@ elsif ARGV[0] == "-p"
 	PORT_RANGE=*(LPORT..HPORT)
 	portscan_engine()
       end
+else
+  port = ARGV[1]
+  host = IPSocket::getaddress(RHOST)
+  sock = Socket.new(:INET, :STREAM)
+  raw = Socket.sockaddr_in(port, host)
+  puts "Starting portscan-ruby.rb ( https://github.com/attackdebris/babel-sf ) at #{TIME}"
+  if HOST == RHOST
+    puts "Scan report for #{HOST}"
+    puts "PORT   STATE"
+    puts "#{port}\/tcp open" if sock.connect(raw)
+    puts "\nportscan-ruby.rb scan done"
+  else puts "Scan report for #{RHOST} (#{HOST})"
+    puts "PORT   STATE"
+    puts "#{port}\/tcp open" if sock.connect(raw)
+    puts "\nportscan-ruby.rb scan done"
+  end
     end
 end
