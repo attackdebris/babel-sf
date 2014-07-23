@@ -13,9 +13,9 @@ import sys
 from multiprocessing import Pool
 
 instructions =  "portscan-python.py ( https://github.com/attackdebris/babel-sf )\n" +\
-                "\nUsage:" +\
-                "\npython portscan-python.py [target]" +\
-                "\ne.g. python portscan-python.py 192.168.0.1" +\
+                "\nUSAGE 'common ports' scan (default):" +\
+                "\n  python portscan-python.py [target]" +\
+                "\n  e.g. python portscan-python.py 192.168.0.1" +\
                 "\nPORT SPECIFICATION (optional):" +\
                 "\n  -p <port ranges>: Only scan specified ports" +\
                 "\n  e.g. -p 20-22" +\
@@ -27,7 +27,7 @@ if len(sys.argv) <2  or sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[
 elif len(sys.argv) ==2 and sys.argv[1] != "-p":
 	host = sys.argv[1]
 	ip = socket.gethostbyname(host)
-	port_range = 21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 3306, 3389
+	port_range = 21, 22, 23, 25, 53, 80, 135, 139, 443, 445, 1433, 1521, 3306, 3389
 elif len(sys.argv) >4:
 	print "portscan-python.py ( https://github.com/attackdebris/babel-sf )\n"
         print "Error, maximum of 3 arguments accepted, check your syntax"
