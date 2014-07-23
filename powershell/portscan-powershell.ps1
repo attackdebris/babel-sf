@@ -30,7 +30,7 @@ if ($target -eq "" -Or $target -eq "-h" -Or $target -eq "--h" -Or $target -eq "-
 echo "portscan-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )"
 echo "`nUSAGE 'common ports' scan (default):"
 echo "  .\portscan-powershell.ps1 [target]"
-echo "  e.g. .\portscan-powershell.ps1 attackdebris.com"
+echo "  e.g. .\portscan-powershell.ps1 192.168.0.1"
 echo "PORT SPECIFICATION (optional):"
 echo "  -p <port ranges>: Only scan specified ports"
 echo "  e.g. -p 20-22 [target]"
