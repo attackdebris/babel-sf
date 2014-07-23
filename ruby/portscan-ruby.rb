@@ -11,7 +11,7 @@ TIME_TO_WAIT = 5 # seconds
 TIME = Time.now.strftime("%Y-%m-%d %H:%M")
 
 def portscan_engine()
-# Set time_now due to fix timing issue and the expiration
+# Set time.now due to fix timing issue and the expiration
 time_now = Time.now
 expiration = Time.now + TIME_TO_WAIT
 # Header details
