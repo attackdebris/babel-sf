@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #
-# http-ruby.rb version 0.1
+# http-ruby.rb version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -13,8 +13,8 @@ if ARGV.empty? or ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or A
     puts "http-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\n"
     puts "Usage:"
-    puts "ruby http-ruby.rb [bind port]"
-    puts "e.g. ruby http-ruby.rb 80"
+    puts "  ruby http-ruby.rb [bind port]"
+    puts "  e.g. ruby http-ruby.rb 80"
 elsif ARGV.length != 1
     puts "http-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\nError, only 1 argument is required, check your syntax"

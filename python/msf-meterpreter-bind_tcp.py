@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# msf-meterpreter-bind_tcp.py version 0.1
+# msf-meterpreter-bind_tcp.py version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -11,10 +11,10 @@ import datetime
 i = datetime.datetime.today()
 
 instructions = 	"msf-meterpreter-bind_tcp.py ( https://github.com/attackdebris/babel-sf )\n" +\
-		"[This script should be utilised with a python/meterpreter/bind_tcp msf handler payload]\n" +\
+		"\n[This script should be utilised with a python/meterpreter/bind_tcp msf handler payload]\n" +\
 		"\nUsage:" +\
-		"\npython msf-meterpreter-bind_tcp.py [bind port]" +\
-		"\ne.g. python msf-meterpreter-bind_tcp.py 4444"
+		"\n  python msf-meterpreter-bind_tcp.py [bind port]" +\
+		"\n  e.g. python msf-meterpreter-bind_tcp.py 4444"
 
 if len(sys.argv) <2 or sys.argv[1] == "-h" or sys.argv[1] == "--h" or sys.argv[1] == "-help" or sys.argv[1] == "--help":
 	print instructions
