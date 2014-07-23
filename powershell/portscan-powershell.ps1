@@ -28,7 +28,7 @@ param (
 if ($target -eq "" -Or $target -eq "-h" -Or $target -eq "--h" -Or $target -eq "-help" -Or $target -eq "--help")
 {
 echo "portscan-powershell.ps1 - ( https://github.com/attackdebris/babel-sf )"
-echo "`nUsage (common ports):"
+echo "`nUSAGE 'common ports' scan (default):"
 echo "  .\portscan-powershell.ps1 [target]"
 echo "  e.g. .\portscan-powershell.ps1 attackdebris.com"
 echo "PORT SPECIFICATION (optional):"
