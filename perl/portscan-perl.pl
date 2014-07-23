@@ -18,7 +18,7 @@ if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-he
 	print"portscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"\nUSAGE 'common ports' scan (default):"; 
         print"\n  perl portscan-perl.pl [target]";
-	print"\n  e.g. perl portscan-powershell.pl 192.168.0.1";
+	print"\n  e.g. perl portscan-perl.pl 192.168.0.1";
 	print"\nPORT SPECIFICATION (optional):";
 	print"\n  -p <port ranges>: Only scan specified ports";
 	print"\n  e.g. -p 20-22";
