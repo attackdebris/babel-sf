@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# portscan-perl.pl version 0.2
+# portscan-perl.pl version 0.3
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -129,9 +129,9 @@ FORK: for ($port=$main::lport; $port<=$main::hport; $port++) {
 	if (not defined $pid) {
 		#If resource is not available...
 		if ($! =~ /Resource temporarily unavailable/) {
-			#Reap children.
-			&DoReap;
-			
+			while (my $child = shift @children) {
+			waitpid $child, 0;
+			}		
 			#Retry this port.
 			$port --;
 		} else {
