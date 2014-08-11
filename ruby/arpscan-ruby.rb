@@ -31,6 +31,7 @@ s = UDPSocket.new
 end
 
 # Misses the later hosts unless we intoduce a delay
+puts "arpscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
 sleep(5)
 f = File.open("/proc/net/arp", 'r')
 data = f.read.split("\n")
@@ -45,7 +46,6 @@ data.each do |line|
   up_hosts << [ :ip => entry[0], :mac => entry[3]]
 end
 
-puts "arpscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
 puts "\r\nActive network hosts:"
 puts "%-12s\t%s\n" % ["IP Address", "MAC Address"]
 up_hosts.each do |host|
