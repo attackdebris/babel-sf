@@ -7,8 +7,6 @@
 
 require 'socket'
 
-network_interface = ARGV[0]
-
 if ARGV[0] == "-h" or ARGV[0] == "--h" or ARGV[0] == "-help" or ARGV[0] == "--help"
     puts "arpscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\n"
