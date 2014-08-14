@@ -1,20 +1,39 @@
-#!/usr/bin/perl 
+#!/usr/bin/perl
 #
 # arpscan-perl.pl version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
 
-use warnings;
+#use warnings;
 use strict;
 use IO::Socket::INET;
 
 require 'sys/ioctl.ph';
 
-$| = 1;
- print "arpscan-perl.py ( https://github.com/attackdebris/babel-sf )\n";
+my $num_args = $#ARGV + 1;
+my $int=$ARGV[0];
+if ($ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-help" or $ARGV[0] eq "--help"){
+	print"arpscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
+	print"\nUSAGE:"; 
+        print"\n  perl arpscan-perl.pl";
+        print"\n  perl arpscan-perl.pl [interface]";
+        print"\n  e.g. perl arpscan-perl.pl eth0\n";
+        exit 0;
+}
+elsif ($num_args > 1) {
+	print "arpscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n\n";
+	print"Too many arguments, please check your syntax.\n";
+	exit 0;
+}
+elsif ($num_args == 0) {
+	$int = 'eth0';
+}
 
-my $full_ip = get_interface_address('eth0');
+$| = 1;
+print "arpscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
+
+my $full_ip = get_interface_address("$int");
 my @split = split('\.', $full_ip);
 my $ip = "$split[0].$split[1].$split[2]";
 
