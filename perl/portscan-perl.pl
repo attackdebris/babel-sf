@@ -13,7 +13,6 @@ use POSIX qw(strftime);
 my $date = strftime "%m-%d-%Y %H:%M", localtime;
 
 my $num_args = $#ARGV + 1;
-#$target = $ARGV[0];
 if ($num_args == 0 or $ARGV[0] eq "-h" or $ARGV[0] eq "--h" or  $ARGV[0] eq "-help" or $ARGV[0] eq "--help"){
 	print"portscan-perl.pl ( https://github.com/attackdebris/babel-sf )\n";
 	print"\nUSAGE 'common ports' scan (default):"; 
