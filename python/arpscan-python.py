@@ -14,8 +14,9 @@ import struct
 instructions =	"arpscan-python.py ( https://github.com/attackdebris/babel-sf )" +\
 		"\n" +\
 		"\nUSAGE:" +\
-		"\n  ruby arpscan-python.py" +\
-		"\n  e.g. ruby portscan-python.py"
+		"\n  python arpscan-python.py" +\
+		"\n  python arpscan-python.pl [interface]" +\
+		"\n  e.g. python arpscan-python.py eth0"
 
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
