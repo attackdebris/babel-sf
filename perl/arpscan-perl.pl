@@ -78,7 +78,7 @@ foreach my $linein ( @arp ) {
   $macad = (split(/\s+/,$linein))[3];
   if ($macad eq '00:00:00:00:00:00') {
   } else {
-  print "$ipad\t$macad\n";
+  print "$ipad \t$macad\n";
   }
 }
 print "\narpscan-perl.pl scan done\n";
