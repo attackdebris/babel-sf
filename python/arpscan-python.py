@@ -44,7 +44,6 @@ elif len(sys.argv) == 2:
   ip_addr = "%s.%s.%s." % (int_ip[0], int_ip[1], int_ip[2])
   for i in range(1,255):  
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
-    #s.settimeout(0.5)
     ip = "%s%s" % (ip_addr, i)
     s.sendto("abc", (ip, 53))
     s.close()
@@ -66,5 +65,5 @@ for line in lines[1:]:
   if parts[3] != "00:00:00:00:00:00":
     ip = parts[0]
     mac = parts[3]
-    print ip+'\t'+mac
+    print "%s \t%s" % (ip, mac)
 print "\narpscan-python.py scan done"
