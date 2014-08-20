@@ -17,7 +17,8 @@ elsif ARGV.length > 0
     puts "arpscan-ruby.rb ( https://github.com/attackdebris/babel-sf )"
     puts "\r\nError, no arguments are required, check your syntax"
 else
-    
+
+# Time and ruby competence has ruled out [interface] option for now!
 return_ip = Socket.ip_address_list.detect{|intf| intf.ipv4_private?}
 ip = return_ip.ip_address unless return_ip.nil?
 ip = ip.rpartition(".")[0] +"."
@@ -49,7 +50,7 @@ end
 puts "\r\nActive network hosts:"
 puts "%-12s\t%s\n" % ["IP Address", "MAC Address"]
 up_hosts.each do |host|
-puts "%-12s\t%s\n" % [host[0][:ip], host[0][:mac]]
+puts "%-12s \t%s\n" % [host[0][:ip], host[0][:mac]]
 end
 puts "\r\narpscan-ruby.rb scan done"
 end
