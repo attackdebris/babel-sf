@@ -44,7 +44,6 @@ elsif ($ARGV[0] eq "-p" and $num_args eq 3 ) {
 	}
 	elsif ($ARGV[1] =~ /,/) {
 	  our @port = split /,/, $ARGV[1];
-	  print "PORTS = @port\n";
 	  our $target = $ARGV[2];
 	  our $ip = inet_ntoa(inet_aton($target));
 	  &portscan_list_engine(@port, $target, $ip);
