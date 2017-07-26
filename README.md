@@ -24,23 +24,23 @@ The Babel Scripting Framework (babel-sf) is a collection of tools to faciliitate
 
 babel-sf has been created for testing minimal installations, locked down and/or hardened environments e.g.
 
-1. When the target Operating System has a minimal installation
-2. When the Operating System’s native tools have been removed
-3. When the Operating System’s native tools have been locked down via ACLs, Group Policy or AppLocker
+* When the target Operating System has a minimal installation
+* When the Operating System’s native tools have been removed
+* When the Operating System’s native tools have been locked down via ACLs, Group Policy or AppLocker
 
 But crucially, you still have access to one or more scripting languages e.g. Python or PowerShell
 
 Its development was also partially driven by my own needs:
 
-1. Proof of Concept i.e. to demonstrate why access to scripting languages can be bad!
-2. System Administrator “Yeah, users have access to [ruby/perl/python/PowerShell], so what?”
+* Proof of Concept i.e. to demonstrate why access to scripting languages can be bad!
+* System Administrator “Yeah, users have access to [ruby/perl/python/PowerShell], so what?”
 
 ### But really Why?
 
 To solve reoccurring problems encountered during my testing:
 
-1. Having to write your own code to perform a required task (takes time!)
-2. Having to Google for code to (re)use, tweak and/or just to get working (takes time!)
+* Having to write your own code to perform a required task (takes time!)
+* Having to Google for code to (re)use, tweak and/or just to get working (takes time!)
 
 I expect babel-sf to be used when you don’t have any tools or Operating System utilities available e.g.
 
@@ -56,23 +56,21 @@ In this scenario you simply download babel-sf onto the target box via a short on
 
 babel-sf “aspires” to be identical in each scripting language:
 
-1. Identical Usage (switches etc.)
-2. Identical Output
-3. Offer an identical ‘Look and Feel’
+* Identical Usage (switches etc.)
+* Identical Output
+* Offer an identical ‘Look and Feel’
 
 ### Functionality?
 
 As it stands, babel-sf provides scripts for the following functions:
 
-```bash
-Port Scanner 
-Arp Scanner 
-FTP client (crude)
-WGET client
-HTTP Server
-Bind Metasploit Payload
-Reverse Metasploit Payload
-```
+1. Port Scanner 
+2. Arp Scanner 
+3. FTP client (crude)
+4. WGET client
+5. HTTP Server
+6. Bind Metasploit Payload
+7. Reverse Metasploit Payload
 
 ### Initial Download?
 
@@ -118,25 +116,25 @@ Obviously, if you were located on a closed network you would download from your 
 
 The scripts offer uniform functionality to a point, some exceptions are:
 
-Ruby has a socket limit (approx 1024):  This limits the maximum number of ports that can be scanned at once
+1. Ruby has a socket limit (approx 1024):  This limits the maximum number of ports that can be scanned at once
 
-I had to be flexible with the type of metasploit shells included:  Whilst, bind and reverse shells are included for each scripting language, one language may provide tcp_shells whlilst another may provide meterpreter shells
+2. I had to be flexible with the type of metasploit shells included:  Whilst, bind and reverse shells are included for each scripting language, one language may provide tcp_shells whlilst another may provide meterpreter shells
 
-Whilst the underlying functionality is similar for all of the different HTTP servers: It proved tricky getting HTTP servers to provide a uniform look/feel:
+3. Whilst the underlying functionality is similar for all of the different HTTP servers: It proved tricky getting HTTP servers to provide a uniform look/feel:
 
-Arpscanner usage varies a little between languages: The interface switch (e.g. eth0) is not currently supported in all languages
+4. Arpscanner usage varies a little between languages: The interface switch (e.g. eth0) is not currently supported in all languages
 
 ### Confessions!
 
-I’m not a coder (if you are a coder, look away now!)
-Coding in 4 different languages at the same time is foolhardy!
-Bugs / Errors abound
-If you don’t like certain aspects, contribute! Make them better!
+* I’m not a coder (if you are a coder, look away now!)
+* Coding in 4 different languages at the same time is foolhardy!
+* Bugs / Errors abound
+* If you don’t like certain aspects, contribute! Make them better!
 
 ### Testing!
 
-Only limited testing has been conducted
-Further testing, testing, testing is required e.g. What versions of Perl, Python, Ruby and PowerShell do the scripts run on?
+* Only limited testing has been conducted
+* Further testing, testing, testing is required e.g. What versions of Perl, Python, Ruby and PowerShell do the scripts run on?
 
 babel-sf has been tested on the following target Operating Systems:
 
