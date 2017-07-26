@@ -149,7 +149,7 @@ Debian “wheezy”
 
 PowerShell (Windows)
 
-Created on and tested in PowerShell version 2.0 (Windows 7)
+Created on and tested in `PowerShell version 2.0 (Windows 7)`
 
 ### Future Additions?
 
