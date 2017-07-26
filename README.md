@@ -140,14 +140,14 @@ The scripts offer uniform functionality to a point, some exceptions are:
 
 babel-sf has been tested on the following target Operating Systems (but it should work on many, many more):
 
-Perl, Python and Ruby (Currently only targeting Nix systems)
+* Perl, Python and Ruby (Currently only targeting Nix systems)
 
 ```bash
 Ubuntu 12.04
 Debian “wheezy”
 ```
 
-PowerShell (Windows)
+* PowerShell (Windows)
 
 Created on and tested in `PowerShell version 2.0 (Windows 7)`
 
