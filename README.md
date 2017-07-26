@@ -88,7 +88,7 @@ use LWP::Simple; mirror('https://github.com/attackdebris/babel-sf/archive/master
 
 ### Python:
 
-Create ‘download.py’ containing the following code and execture via: ‘python download.py’
+Create ‘download.py’ containing the following code and execute via: ‘python download.py’
 
 ```bash
 import urllib; urllib.urlretrieve('https://github.com/attackdebris/babel-sf/archive/master.zip', 'babel-sf.zip')
@@ -96,7 +96,7 @@ import urllib; urllib.urlretrieve('https://github.com/attackdebris/babel-sf/arch
 
 ### Ruby:
 
-Create ‘download.rb’ containing the following code and execture via: ‘ruby download.rb’
+Create ‘download.rb’ containing the following code and execute via: ‘ruby download.rb’
 
 ```bash
 require 'open-uri'; File.open("babel-sf.zip", "wb").write(open("https://github.com/attackdebris/babel-sf/archive/master.zip", "rb").read)
@@ -104,7 +104,7 @@ require 'open-uri'; File.open("babel-sf.zip", "wb").write(open("https://github.c
 
 ### PowerShell:
 
-Create ‘download.ps1' containing the following code and execture via: ‘powershell .\download.ps1'
+Create ‘download.ps1' containing the following code and execute via: ‘powershell .\download.ps1'
 
 ```bash
 (new-object System.Net.WebClient).Downloadfile("https://github.com/attackdebris/babel-sf/archive/master.zip","babel-sf.zip")
