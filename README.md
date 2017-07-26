@@ -12,7 +12,7 @@ The Babel Scripting Framework (babel-sf) is a collection of tools to faciliitate
     Reverse Metasploit Payload
 ````
 
-## The Tools are Replicated in the Following:
+### The Tools are Replicated in the Following Languages:
 ```bash
     Perl
     Python
@@ -24,31 +24,31 @@ The Babel Scripting Framework (babel-sf) is a collection of tools to faciliitate
 
 babel-sf has been created for testing minimal installations, locked down and/or hardened environments e.g.
 
-    When the target Operating System has a minimal installation
-    When the Operating System’s native tools have been removed
-    When the Operating System’s native tools have been locked down via ACLs, Group Policy or AppLocker
+1. When the target Operating System has a minimal installation
+2. When the Operating System’s native tools have been removed
+3. When the Operating System’s native tools have been locked down via ACLs, Group Policy or AppLocker
 
 But crucially, you still have access to one or more scripting languages e.g. Python or PowerShell
 
 Its development was also partially driven by my own needs:
 
-    Proof of Concept i.e. to demonstrate why access to scripting languages can be bad!
-    System Administrator “Yeah, users have access to [ruby/perl/python/PowerShell], so what?”
+1. Proof of Concept i.e. to demonstrate why access to scripting languages can be bad!
+2. System Administrator “Yeah, users have access to [ruby/perl/python/PowerShell], so what?”
 
 ### But really Why?
 
 To solve reoccurring problems encountered during my testing:
 
-    Having to write your own code to perform a required task (takes time!)
-    Having to Google for code to (re)use, tweak and/or just to get working (takes time!)
+1. Having to write your own code to perform a required task (takes time!)
+2. Having to Google for code to (re)use, tweak and/or just to get working (takes time!)
 
 I expect babel-sf to be used when you don’t have any tools or Operating System utilities available e.g.
 
-    No telnet
-    No FTP
-    No wget
-    No SSH
-    No netcat, nmap etc. etc.
+1. No telnet
+2. No FTP
+3. No wget
+4. No SSH
+5. No netcat, nmap etc. etc.
 
 In this scenario you simply download babel-sf onto the target box via a short one liner (in whichever scripting language is available to you).
 
@@ -56,21 +56,23 @@ In this scenario you simply download babel-sf onto the target box via a short on
 
 babel-sf “aspires” to be identical in each scripting language:
 
-    Identical Usage (switches etc.)
-    Identical Output
-    Offer an identical ‘Look and Feel’
+1. Identical Usage (switches etc.)
+2. Identical Output
+3. Offer an identical ‘Look and Feel’
 
 ### Functionality?
 
 As it stands, babel-sf provides scripts for the following functions:
 
-1. Port Scanner 
-2. Arp Scanner 
-3. FTP client (crude)
-4. WGET client
-5. HTTP Server
-6. Bind Metasploit Payload
-7. Reverse Metasploit Payload
+```bash
+Port Scanner 
+Arp Scanner 
+FTP client (crude)
+WGET client
+HTTP Server
+Bind Metasploit Payload
+Reverse Metasploit Payload
+```
 
 ### Initial Download?
 
@@ -126,26 +128,28 @@ Arpscanner usage varies a little between languages: The interface switch (e.g. e
 
 ### Confessions!
 
-    I’m not a coder (if you are a coder, look away now!)
-    Coding in 4 different languages at the same time is foolhardy!
-    Bugs / Errors abound
-    If you don’t like certain aspects, contribute! Make them better!
+I’m not a coder (if you are a coder, look away now!)
+Coding in 4 different languages at the same time is foolhardy!
+Bugs / Errors abound
+If you don’t like certain aspects, contribute! Make them better!
 
 ### Testing!
 
-    Only limited testing has been conducted
-    Further testing, testing, testing is required e.g. What versions of Perl, Python, Ruby and PowerShell do the scripts run on?
+Only limited testing has been conducted
+Further testing, testing, testing is required e.g. What versions of Perl, Python, Ruby and PowerShell do the scripts run on?
 
 babel-sf has been tested on the following target Operating Systems:
 
 ### Perl, Python and Ruby (Currently only targeting Nix systems)
 
-    Ubuntu 12.04
-    Debian “wheezy”
+```bash
+Ubuntu 12.04
+Debian “wheezy”
+```
 
 ### PowerShell (Windows)
 
-    Created on and tested in PowerShell version 2.0 (Windows 7)
+Created on and tested in PowerShell version 2.0 (Windows 7)
 
 ### Future Additions?
 
