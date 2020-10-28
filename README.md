@@ -15,7 +15,8 @@ The Babel Scripting Framework (babel-sf) is a collection of tools to faciliitate
 ### The Tools are Replicated in the Following Languages:
 ```bash
     Perl
-    Python
+    Python 2.x
+    Python 3.x
     Ruby
     PowerShell
 ```
