@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# arpscan-python.py - Python 3 version 0.1
+# arpscan-python.py - Python 3 version 0.2
 #
 # babel-sf ( https://github.com/attackdebris/babel-sf )
 #
@@ -10,12 +10,10 @@ import time
 import sys
 import struct
 
-instructions =	("arpscan-python.py ( https://github.com/attackdebris/babel-sf )" +\
+instructions =	"arpscan-python.py ( https://github.com/attackdebris/babel-sf )" +\
 		"\n" +\
 		"\nUSAGE:" +\
-		"\n  python arpscan-python.py" +\
-		"\n  python arpscan-python.pl [interface]" +\
-		"\n  e.g. python arpscan-python.py eth0")
+		"\n  python arpscan-python.py"
 
 def get_ip_address():
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
